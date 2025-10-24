@@ -1,95 +1,66 @@
-import Image from "next/image";
+import Link from "next/link";
+import { getAllContent } from "@/lib/content";
+import { categories } from "@/lib/types";
+import type { TipMetadata } from "@/lib/types";
+import CategoryCard from "@/components/CategoryCard";
+import TipCard from "@/components/TipCard";
 import styles from "./page.module.css";
 
 export default function Home() {
+  const allContent = getAllContent();
+  const recentTips = allContent
+    .filter((content) => content.section === "tips")
+    .slice(0, 6) as TipMetadata[];
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+        {/* Hero Section */}
+        <section className={styles.hero}>
+          <h1 className={styles.title}>Web Design H/Jack</h1>
+          <p className={styles.subtitle}>
+            実践的なWebデザイン・コーディング学習メディア
+          </p>
+        </section>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
+        {/* Categories */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>カテゴリから探す</h2>
+          <div className={styles.categories}>
+            {categories.map((category) => (
+              <CategoryCard key={category.id} category={category} />
+            ))}
+          </div>
+        </section>
+
+        {/* Recent Tips */}
+        <section className={styles.section}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>最近のTips</h2>
+            <Link href="/tips" className={styles.viewAll}>
+              すべて見る →
+            </Link>
+          </div>
+          <div className={styles.tips}>
+            {recentTips.map((tip) => (
+              <TipCard key={tip.slug} tip={tip} />
+            ))}
+          </div>
+        </section>
+
+        {/* Flow */}
+        <section className={styles.section}>
+          <div className={styles.flowCard}>
+            <h2 className={styles.flowTitle}>制作の流れを学ぶ</h2>
+            <p className={styles.flowDescription}>
+              Tipsを使って、実際にサイトを作る手順を学びましょう
+            </p>
+            <Link href="/flow" className={styles.flowButton}>
+              制作の流れを見る
+            </Link>
+          </div>
+        </section>
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
