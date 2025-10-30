@@ -1,0 +1,55 @@
+.filter {
+  margin: var(--spacing-4) 0;
+  padding: var(--spacing-3);
+  background: var(--theme-color-secondary);
+  border: var(--border-w-min) solid var(--border-primary);
+  border-radius: var(--radius-8);
+}
+
+.filterHeader {
+  margin-bottom: var(--spacing-2);
+  padding-bottom: var(--spacing-2);
+  border-bottom: var(--border-w-min) solid var(--border-primary);
+}
+
+.filterLabel {
+  font-family: var(--font-dot);
+  font-size: var(--font-size-14);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--theme-color-muted);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-1);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-half) var(--spacing-2);
+  background: var(--theme-color-primary);
+  border: var(--border-w-min) solid var(--border-primary);
+  border-radius: var(--radius-4);
+  color: var(--theme-color-muted);
+  font-size: var(--font-size-14);
+  font-family: var(--font-dot);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background: var(--theme-color-blue);
+  border-color: var(--border-primary);
+  color: var(--theme-color-fg);
+}
+
+.tag.active {
+  background: var(--theme-color-green);
+  border-color: var(--border-primary);
+  color: var(--theme-color-accent);
+}

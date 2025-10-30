@@ -1,0 +1,72 @@
+.footer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-top: var(--border-w-min) solid var(--border-primary);
+}
+
+.footerContents {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.footerMenu {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--spacing-2);
+}
+
+.footerMenu nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.footerMenu nav ul li a {
+  display: block;
+  font-size: var(--font-size-20);
+  border-bottom: var(--border-w-min) solid var(--border-primary);
+}
+
+.backToTopBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-1);
+  padding-left: var(--spacing-half);
+  color: var(--theme-color-fg-inverse);
+  background-color: var(--theme-color-surface-inverse);
+  cursor: pointer;
+}
+
+.btnLabel {
+  font-family: var(--font-dot);
+  text-transform: uppercase;
+}
+
+.footerCopy {
+  padding: var(--spacing-4) 0;
+  border-top: var(--border-w-min) solid var(--border-primary);
+}
+
+.footerCopy small {
+  display: flex;
+  flex-direction: column;
+}
+
+.copy {
+  display: block;
+  padding-left: var(--spacing-4);
+  font-family: var(--font-dot);
+}
+
+.siteTitle {
+  padding-left: var(--spacing-4);
+  font-size: 8vw;
+  line-height: var(--line-height-100);
+  border-top: var(--border-w-min) solid var(--border-secondary);
+  border-bottom: var(--border-w-min) solid var(--border-secondary);
+  font-family: var(--font-dot);
+}

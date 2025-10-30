@@ -1,0 +1,31 @@
+.page {
+  min-height: 100vh;
+}
+
+.main {
+  max-width: var(--page-main-width);
+  margin: 0 auto;
+  padding: var(--spacing-6) var(--spacing-3);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--spacing-3);
+}
+
+.empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--spacing-6);
+  color: var(--theme-color-muted);
+  font-family: var(--font-dot);
+  font-size: var(--font-size-16);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

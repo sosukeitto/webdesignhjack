@@ -1,38 +1,49 @@
-.filter {
+.tabs {
+  margin: var(--spacing-4) 0;
+}
+
+.tabList {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  margin: 2rem 0;
+  gap: var(--spacing-1);
+  border-bottom: var(--border-w-min) solid var(--border-primary);
+  padding-bottom: var(--spacing-2);
 }
 
-.button {
+.tab {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.25rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
-  color: rgba(245, 245, 245, 0.7);
-  font-size: 0.875rem;
-  font-family: 'Noto Sans JP', sans-serif;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.button:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 26, 26, 0.3);
-  color: #f5f5f5;
-}
-
-.button.active {
-  background: rgba(255, 26, 26, 0.1);
-  border-color: rgba(255, 26, 26, 0.5);
-  color: #ff1a1a;
+  gap: var(--spacing-half);
+  padding: var(--spacing-1) var(--spacing-2);
+  background: transparent;
+  border: var(--border-w-min) solid transparent;
+  border-radius: var(--radius-8);
+  color: var(--theme-color-muted);
+  font-size: var(--font-size-16);
+  font-family: var(--font-gothic-ja);
   font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.tab:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--border-primary);
+  color: var(--theme-color-fg);
+}
+
+.tab[data-selected] {
+  background: var(--theme-color-orange);
+  border-color: var(--border-primary);
+  color: var(--theme-color-accent);
+}
+
+.tab[data-focus-visible] {
+  outline: 2px solid var(--theme-color-orange);
+  outline-offset: 2px;
 }
 
 .icon {
-  font-size: 1.125rem;
+  font-size: var(--font-size-18);
 }

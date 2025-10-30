@@ -2,54 +2,62 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.5rem;
+  gap: var(--spacing-3);
+  margin-top: var(--spacing-4);
 }
 
 .empty {
   grid-column: 1 / -1;
   text-align: center;
-  padding: 3rem;
-  color: rgba(245, 245, 245, 0.5);
+  padding: var(--spacing-6);
+  color: var(--theme-color-muted);
+  font-family: var(--font-dot);
+  font-size: var(--font-size-16);
 }
 
 /* Flow Card */
 .flowCard {
   display: block;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
+  padding: var(--spacing-4);
+  background: var(--theme-color-secondary);
+  border: var(--border-w-min) solid var(--border-primary);
+  border-radius: var(--radius-8);
   text-decoration: none;
-  color: #f5f5f5;
-  transition: all 0.3s ease;
+  color: var(--theme-color-fg);
+  transition: all 0.2s ease;
 }
 
 .flowCard:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(23, 56, 255, 0.3);
+  background: var(--theme-color-primary);
+  border-color: var(--theme-color-blue);
   transform: translateY(-2px);
 }
 
 .flowTitle {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #f5f5f5;
+  font-family: var(--font-glitch);
+  font-size: var(--font-size-20);
+  font-weight: 700;
+  margin-bottom: var(--spacing-2);
+  color: var(--theme-color-fg);
+  line-height: var(--line-height-140);
 }
 
 .flowMeta {
   display: flex;
-  gap: 1rem;
-  font-size: 0.875rem;
-  color: rgba(245, 245, 245, 0.6);
+  gap: var(--spacing-2);
+  font-size: var(--font-size-14);
+  color: var(--theme-color-muted);
 }
 
 .difficulty,
 .time {
-  padding: 0.25rem 0.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 4px;
+  padding: var(--spacing-half) var(--spacing-1);
+  background: var(--theme-color-blue);
+  border: var(--border-w-min) solid var(--border-primary);
+  border-radius: var(--radius-4);
+  font-family: var(--font-dot);
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 /* Responsive */

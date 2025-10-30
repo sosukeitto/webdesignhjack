@@ -13,12 +13,16 @@ export type Category =
 // Difficulty types
 export type Difficulty = "beginner" | "intermediate" | "advanced";
 
+// Priority types
+export type Priority = "high" | "medium" | "low";
+
 // Base metadata interface (common fields)
 export interface BaseMetadata {
   title: string;
   slug: string;
   section: Section;
   difficulty: Difficulty;
+  priority?: Priority; // Optional: defaults to "medium" if not specified
   estimatedTime: string;
   publishedAt: string;
 }
@@ -99,4 +103,14 @@ export interface Content {
   metadata: ContentMetadata;
   content: string;
   htmlContent: string;
+}
+
+// Difficulty label translation
+export function getDifficultyLabel(difficulty: Difficulty): string {
+  const labels: Record<Difficulty, string> = {
+    beginner: "初級",
+    intermediate: "中級",
+    advanced: "上級",
+  };
+  return labels[difficulty];
 }

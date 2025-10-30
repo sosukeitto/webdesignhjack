@@ -1,7 +1,8 @@
-import Link from "next/link";
 import { getAllContent } from "@/lib/content";
 import type { Section } from "@/lib/types";
 import SectionContent from "@/components/SectionContent";
+import ArchiveNav from "@/components/archive/ArchiveNav";
+import ArchiveHeader from "@/components/archive/ArchiveHeader";
 import styles from "./page.module.css";
 
 interface SectionPageProps {
@@ -24,23 +25,32 @@ export default async function SectionPage({ params }: SectionPageProps) {
   // Load content on server side
   const content = getAllContent(section === "tips" || section === "flow" ? section as Section : undefined);
 
+  const sectionConfig = {
+    tips: {
+      section: "tips",
+      title: "Tips一覧",
+      description: "実践的なWebデザイン・コーディングTips",
+    },
+    flow: {
+      section: "flow",
+      title: "制作の流れ",
+      description: "実際にサイトを作る時の流れを学ぶ",
+    },
+  };
+
+  const config = sectionConfig[section as "tips" | "flow"] || sectionConfig.tips;
+
   return (
     <div className={styles.page}>
-      <main className={styles.main}>
-        <div className={styles.header}>
-          <Link href="/" className={styles.backLink}>
-            ← ホームへ戻る
-          </Link>
-          <h1 className={styles.title}>
-            {section === "tips" ? "Tips一覧" : "制作の流れ"}
-          </h1>
-          <p className={styles.description}>
-            {section === "tips"
-              ? "実践的なWebデザイン・コーディングTips"
-              : "実際にサイトを作る時の流れを学ぶ"}
-          </p>
-        </div>
+      <ArchiveNav section={config.section} title={config.title} />
 
+      <ArchiveHeader
+        section={config.section}
+        title={config.title}
+        description={config.description}
+      />
+
+      <main className={styles.main}>
         <SectionContent section={section} content={content} />
       </main>
     </div>

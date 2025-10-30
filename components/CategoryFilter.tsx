@@ -1,5 +1,6 @@
 "use client";
 
+import { Tabs, TabList, Tab } from "react-aria-components";
 import { categories } from "@/lib/types";
 import type { Category } from "@/lib/types";
 import styles from "./CategoryFilter.module.css";
@@ -14,28 +15,23 @@ export default function CategoryFilter({
   onCategoryChange,
 }: CategoryFilterProps) {
   return (
-    <div className={styles.filter}>
-      <button
-        onClick={() => onCategoryChange("all")}
-        className={`${styles.button} ${
-          selectedCategory === "all" ? styles.active : ""
-        }`}
-      >
-        すべて
-      </button>
+    <Tabs
+      selectedKey={selectedCategory}
+      onSelectionChange={(key) => onCategoryChange(key as Category | "all")}
+      className={styles.tabs}
+    >
+      <TabList className={styles.tabList}>
+        <Tab id="all" className={styles.tab}>
+          <span>すべて</span>
+        </Tab>
 
-      {categories.map((category) => (
-        <button
-          key={category.id}
-          onClick={() => onCategoryChange(category.id)}
-          className={`${styles.button} ${
-            selectedCategory === category.id ? styles.active : ""
-          }`}
-        >
-          <span className={styles.icon}>{category.icon}</span>
-          <span>{category.label}</span>
-        </button>
-      ))}
-    </div>
+        {categories.map((category) => (
+          <Tab key={category.id} id={category.id} className={styles.tab}>
+            <span className={styles.icon}>{category.icon}</span>
+            <span>{category.label}</span>
+          </Tab>
+        ))}
+      </TabList>
+    </Tabs>
   );
 }

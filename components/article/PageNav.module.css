@@ -1,0 +1,30 @@
+.pageNav {
+  display: flex;
+  align-items: center;
+  border-top: var(--border-w-min) solid var(--border-primary);
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--spacing-8);
+  height: var(--spacing-8);
+  border-right: var(--border-w-min) solid var(--border-primary);
+  color: var(--theme-color-fg-inverse);
+  background-color: var(--theme-color-surface-inverse);
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  width: fit-content;
+  height: var(--spacing-8);
+  padding: 0 var(--spacing-3);
+  border-right: var(--border-w-min) solid var(--border-primary);
+}
+
+.breadcrumbs li a {
+  display: block;
+}

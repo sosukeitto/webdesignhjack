@@ -1,0 +1,40 @@
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: var(--spacing-2);
+}
+
+.headerContents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: var(--site-max-width);
+  margin: 0 auto;
+  padding: var(--spacing-1);
+  border: var(--border-w-min) solid var(--border-primary);
+  border-radius: var(--radius-8);
+}
+
+.headerLogo {
+  font-family: var(--font-dot);
+  padding-left: var(--spacing-4);
+}
+
+.iconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-1);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-full);
+  color: var(--theme-color-fg-inverse);
+  background-color: var(--theme-color-surface-inverse);
+  cursor: pointer;
+}
+
+.btnLabel {
+  font-family: var(--font-dot);
+  text-transform: uppercase;
+}

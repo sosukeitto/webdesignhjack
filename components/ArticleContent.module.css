@@ -1,51 +1,48 @@
 .article {
-  color: #f5f5f5;
-  line-height: 1.8;
+  line-height: 1.6;
 }
 
 /* Headings */
-.article :global(h1) {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 2rem 0 1rem;
-  color: #f5f5f5;
-}
-
 .article :global(h2) {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 2rem 0 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  color: #f5f5f5;
+  margin-top: var(--spacing-4);
+  margin-bottom: var(--spacing-2);
+  padding: var(--spacing-1) var(--spacing-2);
+  border: var(--border-w-min) solid var(--border-primary);
+  border-bottom: var(--border-w-bold) solid var(--border-primary);
+  background: var(--theme-color-primary);
+  border-radius: var(--radius-8) var(--radius-8) 0 0;
 }
 
 .article :global(h3) {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin: 1.5rem 0 0.75rem;
-  color: #f5f5f5;
+  margin-bottom: var(--spacing-2);
+  padding: var(--spacing-2);
+  border-top: var(--border-w-min) solid var(--border-primary);
+  border-bottom: var(--border-w-min) solid var(--border-primary);
 }
 
 /* Paragraphs */
 .article :global(p) {
-  margin: 1rem 0;
-  color: rgba(245, 245, 245, 0.9);
+  margin-bottom: var(--spacing-2);
 }
 
 /* Lists */
 .article :global(ul),
 .article :global(ol) {
-  margin: 1rem 0;
-  padding-left: 2rem;
+  margin: var(--spacing-2) 0;
+  padding-left: var(--spacing-4);
 }
 
 .article :global(li) {
-  margin: 0.5rem 0;
-  color: rgba(245, 245, 245, 0.9);
+  margin: var(--spacing-1) 0;
+  color: var(--theme-color-fg);
+}
+
+.article :global(ul) {
+  list-style-type: disc;
+}
+
+.article :global(ol) {
+  list-style-type: decimal;
 }
 
 /* Inline code */
@@ -54,7 +51,7 @@
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 4px;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
   font-size: 0.875em;
   color: #ff6b6b;
 }
@@ -78,7 +75,7 @@
 }
 
 .article :global(.code-block-language) {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -93,9 +90,9 @@
 }
 
 .article :global(pre code) {
-  font-family: 'Courier New', monospace;
-  font-size: 0.875rem;
-  line-height: 1.6;
+  font-family: "Courier New", monospace;
+  font-size: var(--font-size-16);
+  line-height: var(--line-height-180);
 }
 
 /* Blockquote */

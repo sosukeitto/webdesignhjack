@@ -180,7 +180,11 @@ async function markdownToHtml(markdown: string): Promise<string> {
       .replace(/&gt;/g, '>')
       .replace(/&amp;/g, '&')
       .replace(/&quot;/g, '"')
-      .replace(/&#39;/g, "'");
+      .replace(/&#39;/g, "'")
+      .replace(/&#x3C;/g, '<')
+      .replace(/&#x3E;/g, '>')
+      .replace(/&#x27;/g, "'")
+      .replace(/&#x2F;/g, '/');
 
     try {
       const highlighted = await codeToHtml(decodedCode, {
