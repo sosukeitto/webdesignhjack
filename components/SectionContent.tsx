@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import type { ContentMetadata, Category, TipMetadata } from "@/lib/types";
+import type { ContentMetadata, Category } from "@/lib/types";
 import { isTipMetadata, getDifficultyLabel } from "@/lib/types";
 import TipCard from "@/components/TipCard";
 import CategoryFilter from "@/components/CategoryFilter";
